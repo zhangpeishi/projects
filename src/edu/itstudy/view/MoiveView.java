@@ -141,9 +141,10 @@ public class MoiveView {
                 if(c1 == '6'){
                     return;
                 }
-                List<Moive> list1 = ms.sort(c1,ms.getMoives());
-                printMoives(list1);
+                ms.sort(c1,ms.getMoives());
+                printMoives(ms.getMoives());
 
+                printMoives(ms.getMoives());
                 //排序完之后提示 观看或推荐 或者退出系统
                 System.out.println("1.观看影片2.推荐影片3.返回影院系统4.退出系统");
                 System.out.println("请选择序号：");
@@ -193,8 +194,8 @@ public class MoiveView {
                 if(c == '6'){
                     return;
                 }
-                List<Moive> list1 = ms.sort(c,ms.getSearch_moives());
-                printMoives(list1);
+                ms.sort(c,ms.getSearch_moives());
+                printMoives(ms.getMoives());
                 break;
             case '2':
                 //观看影片
@@ -274,14 +275,16 @@ public class MoiveView {
         }
         System.out.println("1.搜索2.返回上一级");
         char c = ScannerUtil.readMenuSelect(2);
-        List<Moive> list = null;
+        List<Moive> search_list = null;
         if('1' == c){
-            list = ms.searchMoive(name,type,performer);
-            printMoives(list);
+            //得到搜索后的影片集合
+            search_list = ms.searchMoive(name,type,performer);
+
+            printMoives(search_list);
         }else {
             return null;
         }
-        return list;
+        return search_list;
 
     }
 

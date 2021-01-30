@@ -134,7 +134,7 @@ public class MoiveService {
      * 根据指定属性进行排序（默认自然顺序）,返回排完序的影片集合
      * @param choose
      */
-    public List<Moive> sort(char choose,List<Moive> list){
+    public void sort(char choose,List<Moive> list){
         if(choose == SORT_BY_NAME){
             //按名称排序
             //按照匿名内部类的方式
@@ -185,7 +185,7 @@ public class MoiveService {
             );
 
         }
-        return list;
+
     }
 
 
