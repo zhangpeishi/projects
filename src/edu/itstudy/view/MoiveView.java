@@ -124,14 +124,14 @@ public class MoiveView {
     private void choose12_selectMoive(char choose) throws NullPointerException{
         switch (choose){
             case '1':
-                List<Moive> list = choose12_search();
-                if(list == null){
+                choose12_search();
+                if(ms.getSearch_moives() == null){
                     break;
                 }
                 System.out.println("1.影片排序2.观看影片3.推荐影片4.返回影院系统5.退出系统");
                 System.out.println("请选择序号：");
                 char c = ScannerUtil.readMenuSelect(5);
-                choose121(c,list);
+                choose121(c,ms.getSearch_moives());
 
                 break;
             case '2':
@@ -251,7 +251,7 @@ public class MoiveView {
      * @return List<Moive>
      * @throws NumberFormatException
      */
-    public List<Moive>  choose12_search() throws NumberFormatException{
+    public void choose12_search() throws NumberFormatException{
         System.out.println("请输入搜索条件");
         System.out.println("影片名称：");
         String name = ScannerUtil.readString(5,null);
@@ -282,9 +282,8 @@ public class MoiveView {
 
             printMoives(search_list);
         }else {
-            return null;
+            return;
         }
-        return search_list;
 
     }
 
